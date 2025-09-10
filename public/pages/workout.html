@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Tracker - Fitness Tracker</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .workout-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 30px;
+        }
+        .workout-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .workout-item:hover {
+            transform: translateY(-8px);
+        }
+        .workout-item h4 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .workout-item p {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #666;
+        }
+        .workout-item button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .workout-item button:hover {
+            background: var(--primary-color-dark);
+        }
+        .workout-item button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Fitness Tracker</div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="workout.html" class="active">Workout</a></li>
+            <li><a href="nutrition.html">Nutrition</a></li>
+            <li><a href="progress.html">Progress</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <div class="add-workout-form">
+                <h2>Add New Workout</h2>
+                <form id="workout-form">
+                    <div class="form-group">
+                        <label for="exercise">Exercise</label>
+                        <input type="text" id="exercise" name="exercise" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sets">Sets</label>
+                        <input type="number" id="sets" name="sets" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reps">Reps</label>
+                        <input type="number" id="reps" name="reps" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" name="weight" min="0">
+                    </div>
+                    <button type="submit">Add Workout</button>
+                </form>
+            </div>
+
+            <div class="workout-plan">
+                <div id="workout-list">
+                    <!-- Workouts will be displayed here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/workout.js"></script>
+</body>
+</html>

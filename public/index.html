@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .workout-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #dee2e6;
+        }
+        .workout-item h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        .workout-item p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Fitness Tracker</div>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="pages/workout.html">Workout</a></li>
+            <li><a href="pages/nutrition.html">Nutrition</a></li>
+            <li><a href="pages/progress.html">Progress</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h1>Welcome to Fitness Tracker</h1>
+            <div class="dashboard">
+                <a href="pages/workout.html" class="card">
+                    <h3>Today's Workout</h3>
+                    <div id="workout-plan" class="workout-display">
+                        <!-- Workouts will be displayed here -->
+                    </div>
+                </a>
+                <a href="pages/nutrition.html" class="card">
+                    <h3>Calorie Counter</h3>
+                    <div id="calorie-counter" class="calorie-counter-preview">
+                        <div class="calorie-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Daily Goal</span>
+                                <span id="daily-calories" class="stat-value">2000</span>
+                                <span class="stat-unit">cal</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Protein</span>
+                                <span id="daily-protein" class="stat-value">50</span>
+                                <span class="stat-unit">g</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Carbs</span>
+                                <span id="daily-carbs" class="stat-value">250</span>
+                                <span class="stat-unit">g</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Fats</span>
+                                <span id="daily-fats" class="stat-value">65</span>
+                                <span class="stat-unit">g</span>
+                            </div>
+                        </div>
+                        <div class="quick-calculator">
+                            <div class="input-group">
+                                <label for="quick-age">Age</label>
+                                <input type="number" id="quick-age" placeholder="Age">
+                            </div>
+                            <div class="input-group">
+                                <label for="quick-gender">Gender</label>
+                                <select id="quick-gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <button onclick="quickCalculateCalories()">Calculate</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="progress">
+            <div class="calculator">
+                <h3>BMI Calculator</h3>
+                <input type="number" id="weight" placeholder="Weight (kg)">
+                <input type="number" id="height" placeholder="Height (cm)">
+                <button onclick="calculateBMI()">Calculate BMI</button>
+                <div id="bmi-result"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

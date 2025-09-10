@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker - Fitness Tracker</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .progress-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 30px;
+        }
+        .progress-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            min-height: 300px;
+        }
+        .progress-card:hover {
+            transform: translateY(-8px);
+        }
+        .progress-card h2, .progress-card h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .chart-container {
+            display: grid;
+            gap: 30px;
+        }
+        .chart {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .calculator input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .calculator button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        .calculator button:hover {
+            background: #27ae60;
+            transform: scale(1.05);
+        }
+        #bmi-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Fitness Tracker</div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="workout.html">Workout</a></li>
+            <li><a href="nutrition.html">Nutrition</a></li>
+            <li><a href="progress.html" class="active">Progress</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Progress Tracker</h1>
+        <div class="progress-container">
+            <!-- BMI Calculator Card -->
+            <div class="progress-card">
+                <h2>BMI Calculator</h2>
+                <div class="calculator">
+                    <input type="number" id="weight" placeholder="Weight (kg)">
+                    <input type="number" id="height" placeholder="Height (cm)">
+                    <button onclick="calculateBMI()">Calculate BMI</button>
+                    <div id="bmi-result"></div>
+                </div>
+            </div>
+
+            <!-- Weight Progress Card -->
+            <div class="progress-card">
+                <h2>Weight Progress</h2>
+                <div class="chart">
+                    <canvas id="weight-chart"></canvas>
+                </div>
+                <div class="calculator">
+                    <input type="number" id="weight-input" placeholder="Enter weight (kg)">
+                    <button onclick="addWeightEntry()">Add Weight</button>
+                </div>
+            </div>
+
+            <!-- Workout Progress Card -->
+            <div class="progress-card">
+                <h2>Workout Progress</h2>
+                <div class="chart">
+                    <canvas id="workout-chart"></canvas>
+                </div>
+                <div class="calculator">
+                    <input type="text" id="workout-name" placeholder="Workout name">
+                    <input type="number" id="calories-input" placeholder="Calories burned">
+                    <button onclick="addWorkoutEntry()">Add Workout</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/progress.js"></script>
+</body>
+</html>
